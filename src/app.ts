@@ -1,5 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
-const db = require('../models')
+import db from '../models'
 
 const app: Application = express();
 const port = 5000
