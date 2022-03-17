@@ -78,7 +78,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
       allowNull: false
     },
     story: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(5000),
       allowNull: false
     },
   }, {

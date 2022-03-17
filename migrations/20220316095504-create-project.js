@@ -3,46 +3,60 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Projects', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(255),
+        allowNull: false
       },
       category: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(50),
+        allowNull: false
       },
       subTitle: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(500),
+        allowNull: false
       },
       image: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(2000),
+        allowNull: false
       },
       targetLaunchDate: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(50),
+        allowNull: false
       },
       fundingCurrent: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       fundingGoal: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       story: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(5000),
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Projects');
+    await queryInterface.dropTable('Projects', { restartIdentity: true });
   }
 };
