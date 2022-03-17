@@ -3,10 +3,12 @@ import db from '../models'
 import { users } from '../seeders/users.seeder'
 import { projects } from '../seeders/projects.seeder'
 import { backers } from '../seeders/backers.seeder'
-
+import testRouter from './routes/test.route'
 
 const app: Application = express();
 const port = 5000;
+
+app.use('/test', testRouter)
 
 const seedUsers = () => {
     users.map((user) => {
@@ -29,16 +31,6 @@ const seedBackers = () => {
 // seedUsers();
 // seedProjects();
 // seedBackers();
-
-// TEST ROUTE WORKING W/ DB QUERY
-app.get('/', (req: Request, res: Response) => {
-    db.Project.findAll({ where: { userId: 1 }})
-        .then((result: object) => {
-            res.send(JSON.stringify(result))
-      }).catch((err: object) => {
-            res.send(console.log(err))
-      })
-});
 
 db.sequelize.sync().then(() => {
     app.listen(port, () => {
