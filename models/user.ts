@@ -27,8 +27,18 @@ module.exports = (sequelize: any, DataTypes: any) => {
       User.belongsToMany(models.Project, {
         through: 'Backers'
       })
-    }
+    };
+
+    toSafeObject() {
+      const { id, email, firstName, lastName } = this;
+      return { id, email, firstName, lastName };
+    };
+
+    validatePassword(password: string): boolean {
+      return bycryptjs.compareSync(password, this.password.toString());
+    };
   }
+
   User.init({
     id: {
       type: DataTypes.INTEGER,
@@ -66,5 +76,6 @@ module.exports = (sequelize: any, DataTypes: any) => {
     sequelize,
     modelName: 'User',
   });
+
   return User;
 };
