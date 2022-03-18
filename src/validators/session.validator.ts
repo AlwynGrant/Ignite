@@ -2,6 +2,7 @@ import { check } from 'express-validator'
 import { handleValidationErrors } from '.';
 import db from '../../models'
 
+
 export const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
