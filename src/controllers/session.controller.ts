@@ -4,6 +4,7 @@ import { setTokenCookie } from '../utility'
 import { StatusError } from '../validators/index'
 import User from '../../models'
 
+// TODO: TO BE REMOVED
 export const session_test_get = async (req: Request, res: Response) => {
     return res.json({ test: 'HELLO!!!'})
 }
