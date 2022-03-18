@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Home from './components/home/home';
+import SessionContext from './shared/context'
 
 function App() {
+  const context = useContext(SessionContext)
   return (
     <div className="App">
       <header className="App-header">
-          <div>TEST</div>
+          {context?.lastName}
+          <Home />
       </header>
     </div>
   );
