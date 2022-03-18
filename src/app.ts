@@ -1,44 +1,34 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import db from '../models'
-import { users } from '../seeders/users.seeder'
-import { projects } from '../seeders/projects.seeder'
-import { backers } from '../seeders/backers.seeder'
 
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import csurf from 'csurf';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import cors from 'cors'
+
+import routes from './routes'
+
+const { environment } = require('../config/config.js');
+const isProduction = environment === 'production';
 
 const app: Application = express();
 const port = 5000;
 
-const seedUsers = () => {
-    users.map((user) => {
-        db.User.create(user)
-    })
-};
+app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+if (!isProduction) app.use(cors());
+app.use(helmet({contentSecurityPolicy: false}));
+app.use(csurf({cookie: {secure: isProduction, sameSite: isProduction && "lax", httpOnly: true}}));
 
-const seedProjects = () => {
-    projects.map((project) => {
-        db.Project.create(project)
-    })
-};
-
-const seedBackers = () => {
-    backers.map((backer) => {
-        db.Backer.create(backer)
-    })
-};
+app.use(routes);
 
 // seedUsers();
 // seedProjects();
 // seedBackers();
-
-// TEST ROUTE WORKING W/ DB QUERY
-app.get('/', (req: Request, res: Response) => {
-    db.Project.findAll({ where: { userId: 1 }})
-        .then((result: object) => {
-            res.send(JSON.stringify(result))
-      }).catch((err: object) => {
-            res.send(console.log(err))
-      })
-});
 
 db.sequelize.sync().then(() => {
     app.listen(port, () => {
