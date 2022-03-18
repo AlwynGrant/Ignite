@@ -1,8 +1,13 @@
-import express,  { Application, Request, Response, NextFunction }  from 'express'
-import { session_signup, session_login, session_logout } from '../controllers/session.service';
+import express  from 'express'
+import { session_signup, session_login, session_logout, session_test_get } from '../../controllers/session.service';
 import asyncHandler from 'express-async-handler';
-import { validateLogin, validateSignup } from '../validators/session.validators';
+import { validateLogin, validateSignup } from '../../validators/session.validators';
 const router = express.Router();
+
+router.get(
+    '/test',
+    session_test_get
+);
 
 router.post(
     '/signup',

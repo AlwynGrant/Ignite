@@ -4,6 +4,9 @@ import { setTokenCookie } from '../utility'
 import { StatusError } from '../validators/index'
 import User from '../../models'
 
+export const session_test_get = async (req: Request, res: Response) => {
+    return res.json({ test: 'HELLO!!!'})
+}
 
 export const session_signup = async (req: Request, res: Response) => {
     const { email, firstName, lastName, password } = req.body
