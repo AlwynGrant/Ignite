@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { signUp, logIn } from '../../../requests/session.request'
+import SessionContext from '../../../shared/context'
 
 interface InputObject {
   className: string;
@@ -9,9 +10,9 @@ interface InputObject {
   value: string;
 }
 
-
-
 export default function Form (props: { [key: string ]: InputObject}) {
+  const sessionStore = window.sessionStorage
+  const context = useContext(SessionContext)
   const navigate = useNavigate();
   const inputArr = Object.keys(props);
   const authFormTitle = window.location.href;
@@ -39,8 +40,13 @@ export default function Form (props: { [key: string ]: InputObject}) {
       }
       await signUp(newUser)
         .then((data) => {
-          const parsed = data.json()
-          navigate('/discover')
+          context.firstName = data.user.firstName
+          context.lastName = data.user.lastName
+          context.id = data.user.id
+          context.email = data.user.email
+        })
+          .then(() => {
+          navigate('/featured')
         })
         .catch((e) => {
           console.log(e)
@@ -54,8 +60,13 @@ export default function Form (props: { [key: string ]: InputObject}) {
       }
       await logIn(user)
         .then((data) => {
-          const parsed = data.json()
-          navigate('/discover')
+          context.firstName = data.user.firstName
+          context.lastName = data.user.lastName
+          context.id = data.user.id
+          context.email = data.user.email
+        })
+        .then(() => {
+          navigate('/featured')
         })
         .catch((e) => {
           console.log(e)

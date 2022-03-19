@@ -1,6 +1,6 @@
 import express,  { Application, Request, Response, NextFunction }  from 'express'
 import { signUp, login } from '../services/session.service'
-import { setTokenCookie } from '../utility'
+// import { setTokenCookie } from '../utility'
 import { StatusError } from '../validators/index'
 import User from '../../models'
 
@@ -29,7 +29,7 @@ export const session_login = async (req: Request, res: Response, next: NextFunct
             err.errors = ['The username or password is invalid.'];
             return next(err);
         }
-        
+
         res.send({ user });
 }
 
