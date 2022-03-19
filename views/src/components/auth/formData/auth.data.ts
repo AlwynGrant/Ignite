@@ -3,13 +3,13 @@
     input1: {
       className: "form auth-email",
       placeHolder: "E-mail",
-      type: "text",
+      type: "email",
       value: "email"
     },
     input2: {
       className: "form auth-password",
       placeHolder: "Password",
-      type: "text",
+      type: "password",
       value: "password"
     },
   }
@@ -30,13 +30,19 @@
     input3: {
       className: "form auth-email",
       placeHolder: "E-mail",
-      type: "text",
+      type: "email",
       value: "email"
     },
     input4: {
       className: "form auth-password",
       placeHolder: "Password",
-      type: "text",
+      type: "password",
       value: "password"
+    },
+    input5: {
+      className: "form auth-password",
+      placeHolder: "Confirm password",
+      type: "password",
+      value: "confirmPassword"
     },
   }

@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState  } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/home.nav.css'
 // import LoginFormModal from './auth/LoginForm'
 // import SignUpFormModal from './auth/SignUpForm';
 
 const NavHome = () => {
-  interface EventType {
-       e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/login')
   }
 
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
-
-  const handleLogin = (e: EventType) => {
-    setShowLoginModal(true)
-  }
-
-  const handleSignup = (e: EventType) => {
-    setShowSignUpModal(true)
+  const handleSignup = () => {
+    navigate('/signup')
   }
 
   return (
@@ -25,8 +21,14 @@ const NavHome = () => {
             <p className='spl-logo'>IGNITE</p>
         </section>
         <section className="nav-items-right">
-            <button className="spl-login-btn">Log In</button>
-            <button className="spl-signup-btn">Sign up</button>
+            <button
+              className="spl-login-btn"
+              onClick={() => handleLogin()}
+              >Log In</button>
+            <button
+              className="spl-signup-btn"
+              onClick={() => handleLogin()}
+              >Sign up</button>
         </section>
     </nav>
   );
