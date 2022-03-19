@@ -27,7 +27,7 @@ const NavHome = () => {
               >Log In</button>
             <button
               className="spl-signup-btn"
-              onClick={() => handleLogin()}
+              onClick={() => handleSignup()}
               >Sign up</button>
         </section>
     </nav>

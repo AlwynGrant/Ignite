@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom';
+import { signUp, logIn } from '../../../requests/session.request'
 
 interface InputObject {
   className: string;
@@ -7,7 +9,10 @@ interface InputObject {
   value: string;
 }
 
+
+
 export default function Form (props: { [key: string ]: InputObject}) {
+  const navigate = useNavigate();
   const inputArr = Object.keys(props);
   const authFormTitle = window.location.href;
 
@@ -18,11 +23,43 @@ export default function Form (props: { [key: string ]: InputObject}) {
   const [confirmPassword, setConfirmPassword] = useState<string>("")
 
   const state: { [key: string ]: [string, React.Dispatch<React.SetStateAction<string>>]} = {
-      "email": [email, setEmail],
-      "firstName": [firstName, setFirstName],
-      "lastName": [lastName, setLastName],
-      "password": [password, setPassword],
-      "confirmPassword": [confirmPassword, setConfirmPassword],
+    "email": [email, setEmail],
+    "firstName": [firstName, setFirstName],
+    "lastName": [lastName, setLastName],
+    "password": [password, setPassword],
+    "confirmPassword": [confirmPassword, setConfirmPassword],
+  }
+
+    const handleSignup = async () => {
+      const newUser = {
+        email,
+        firstName,
+        lastName,
+        password
+      }
+      await signUp(newUser)
+        .then((data) => {
+          const parsed = data.json()
+          navigate('/discover')
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    }
+
+    const handleLogin = async () => {
+      const user = {
+        email,
+        password
+      }
+      await logIn(user)
+        .then((data) => {
+          const parsed = data.json()
+          navigate('/discover')
+        })
+        .catch((e) => {
+          console.log(e)
+        })
     }
 
     return (
@@ -44,7 +81,11 @@ export default function Form (props: { [key: string ]: InputObject}) {
                     ></input>
         })
       }
-      <button className='form-btn' type='submit'>Submit</button>
+      <button
+        className='form-btn'
+        type='submit'
+        onClick={() =>  authFormTitle.endsWith("signup") ? handleSignup() : handleLogin()}
+        >Submit</button>
         {
           authFormTitle.endsWith("signup")
           ? <p>Already a member? <a href='/login'>Login</a></p>

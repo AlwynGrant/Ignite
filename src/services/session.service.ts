@@ -23,10 +23,10 @@ import db from '../../models'
     return await db.User.findByPk(user.id);
   };
 
-  export const login = async function (credential: string, password: string) {
+  export const login = async function (email: string, password: string) {
     const user = await db.User.findOne({
       where: {
-          email: credential,
+          email: email,
       },
     });
     if (user && user.validatePassword(password)) {

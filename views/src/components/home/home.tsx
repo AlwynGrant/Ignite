@@ -1,11 +1,15 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useEffect, useContext } from 'react'
 import SessionContext from '../../shared/context'
 import TextRoll from './subcomponents/text.roll'
 import ImageRoll from './subcomponents/image.roll'
 import NavHome from './subcomponents/home.nav'
 import './styles/home.css'
 
-const Home: FC = () => {
+const Home = () => {
+    const context = useContext(SessionContext)
+    console.log(context)
+    context.id = 2
+    console.log(context)
 
     return (
         <>

@@ -1,5 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
-const { jwtConfig } = require('../config/config.js');
+const { jwtConfig } = require('../config/config.ts');
 import jwt from 'jsonwebtoken';
 
 const { secret, expiresIn } = jwtConfig
@@ -12,13 +12,9 @@ export const setTokenCookie = (res: Response, user: any) => {
         { expiresIn: parseInt(expiresIn) },
     );
 
-    const isProduction = process.env.NODE_ENV === "production";
-
-    res.cookie('token', token, {
+    res.cookie('Token', token, {
         maxAge: expiresIn * 1000,
         httpOnly: true,
-        secure: isProduction,
-        sameSite: isProduction && "lax",
     });
 
     return token;

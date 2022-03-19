@@ -1,12 +1,20 @@
 import { createContext, useContext, useState} from 'react';
 
-interface Session {
-    userId: number;
+export interface Session {
+    id: number;
+    email: string;
     firstName: string;
     lastName: string;
 }
 
-const SessionContext = createContext<Session | null>(null)
+const defaultState: Session = {
+    id: 0,
+    email: "",
+    firstName: "",
+    lastName: ""
+}
+
+const SessionContext = createContext<Session>(defaultState)
 
 
 export default SessionContext
