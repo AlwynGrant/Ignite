@@ -1,6 +1,6 @@
-import { check } from 'express-validator'
+import { check } from 'express-validator';
 import { handleValidationErrors } from '.';
-import db from '../../models'
+import db from '../../models';
 
 // this will serve as validations for both create and update endpoints
 export const validateProject = [

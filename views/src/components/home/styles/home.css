@@ -1,0 +1,41 @@
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50vh;
+    width: 100vw;
+    z-index: -5;
+}
+.splash-container * {
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+}
+
+.splash-main-text {
+    color: #E42121
+}
+
+/* TOP CONTAINER */
+
+.top-container {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.splash-main-text {
+    font-size: 65px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* BOTTOM CONTAINER */
+
+.bottom-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    height: 350px;
+}

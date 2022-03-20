@@ -5,13 +5,13 @@ import { validateProject } from '../../validators/project.validator';
 const router = express.Router();
 
 router.get(
-    '/:id',
-    project_get_one
+    '/all',
+    project_get_all
 );
 
 router.get(
-    '/all',
-    project_get_all
+    '/:id',
+    project_get_one
 );
 
 router.post(

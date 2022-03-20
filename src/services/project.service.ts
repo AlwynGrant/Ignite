@@ -3,7 +3,9 @@ import db from '../../models'
 
 
   export const queryOneProject = async function(id: number) {
-        const project = await db.Project.findByPk(id);
+        const project = await db.Project.findByPk(id, {
+            include: db.User
+        });
         return project
   };
 

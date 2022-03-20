@@ -1,13 +1,8 @@
 import express,  { Application, Request, Response, NextFunction }  from 'express'
 import { signUp, login } from '../services/session.service'
-import { setTokenCookie } from '../utility'
+// import { setTokenCookie } from '../utility'
 import { StatusError } from '../validators/index'
 import User from '../../models'
-
-// TODO: TO BE REMOVED
-export const session_test_get = async (req: Request, res: Response) => {
-    return res.json({ test: 'HELLO!!!'})
-}
 
 export const session_signup = async (req: Request, res: Response) => {
     const { email, firstName, lastName, password } = req.body
@@ -18,17 +13,14 @@ export const session_signup = async (req: Request, res: Response) => {
         password
     )
 
-    await setTokenCookie(res, newUser);
-
-    return res.json({ newUser });
-
+    res.send({ newUser });
 }
 
 
 export const session_login = async (req: Request, res: Response, next: NextFunction) => {
-        const { credential, password } = req.body;
+        const { email, password } = req.body;
 
-        const user = await login(credential, password);
+        const user = await login(email, password);
 
         if (!user) {
             const err = new StatusError('Login failed');
@@ -38,16 +30,11 @@ export const session_login = async (req: Request, res: Response, next: NextFunct
             return next(err);
         }
 
-        await setTokenCookie(res, user);
-
-        return res.json({ user });
+        res.send({ user });
 }
 
 
 export const session_logout = async (req: Request, res: Response) => {
-        res.clearCookie('token');
-        return res.json({ message: 'success' });
+        // TODO: LOG USER OUT
+        res.send({ message: 'success' });
     }
-
-
-//  TODO: RESTORE USER INFO

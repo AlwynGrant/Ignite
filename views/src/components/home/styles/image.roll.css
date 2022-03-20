@@ -1,0 +1,157 @@
+.image-card {
+    width: 500px;
+    border-radius: 5px;
+    transform: translateY(-25%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.splash-i {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  border-radius: 5px;
+}
+
+/* KEYFRAMES */
+.image-0 {
+
+  animation-name: image-0;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 24s;
+}
+
+@keyframes image-0 {
+
+  0% {
+    opacity:0;
+    transform: translateY(15px);
+  }
+  2.5% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+  22.5% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+  25% {
+    opacity:0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity:0;
+    transform: translateY(-15px);
+  }
+}
+
+.image-1 {
+  animation-name: image-1;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 24s;
+}
+
+@keyframes image-1 {
+
+  0% {
+    opacity:0;
+    transform: translateY(15px);
+  }
+
+  25% {
+    opacity:0;
+    transform: translateY(15px);
+  }
+  27.5% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+  47.5% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity:0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity:0;
+    transform: translateY(-15px);
+  }
+}
+
+.image-2 {
+  animation-name: image-2;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 24s;
+}
+
+@keyframes image-2 {
+
+  0% {
+    opacity:0;
+    transform: translateY(15px);
+  }
+
+  50% {
+    opacity:0;
+    transform: translateY(15px);
+  }
+  52.5% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+  72.5% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+  75% {
+    opacity:0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity:0;
+    transform: translateY(-15px);
+  }
+}
+
+.image-3 {
+  animation-name: image-3;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 24s;
+}
+
+@keyframes image-3 {
+
+  0% {
+    opacity:0;
+    transform: translateY(15px);
+  }
+
+  75% {
+    opacity:0;
+    transform: translateY(15px);
+  }
+  77.5% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+  97.5% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity:0;
+    transform: translateY(-15px);
+  }
+}

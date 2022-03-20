@@ -1,0 +1,28 @@
+.nav-bar-auth {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    height: 70px;
+
+    margin-left: 30px;
+    background-color: rgba(0, 0, 0, 0);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-section-auth {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.spl-logo-auth {
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+}
