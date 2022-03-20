@@ -1,4 +1,4 @@
-interface User {
+interface Project {
     userId: string;
     title: string;
     subTitle: string;
@@ -36,8 +36,8 @@ export const getOneProject = async (id: string | undefined) => {
     return data;
 }
 
-export const createProject = async (user: User) => {
-    const { userId, title, subTitle, category, image, targetLaunchDate , fundingGoal, story } = user
+export const createProject = async (project: Project) => {
+    const { userId, title, subTitle, category, image, targetLaunchDate , fundingGoal, story } = project
     const response = await fetch(`http://localhost:5000/api/project/new`, {
         method: "POST",
         headers: {
@@ -46,8 +46,8 @@ export const createProject = async (user: User) => {
         body: JSON.stringify({
             userId,
             title,
-            subTitle,
             category,
+            subTitle,
             image,
             targetLaunchDate,
             fundingGoal,

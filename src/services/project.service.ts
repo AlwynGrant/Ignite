@@ -26,7 +26,7 @@ import db from '../../models'
   ) {
       const fundingNum = parseInt(fundingGoal, 10);
       const userNum = parseInt(userId, 10);
-      console.log(userNum)
+
           const newProject = await db.Project.create({
               userId: userNum,
               title,

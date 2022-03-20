@@ -1,6 +1,6 @@
 import express,  { Application, Request, Response, NextFunction }  from 'express'
 import { queryOneProject, queryAllProjects, createNewProject, updateProject, deleteProject } from '../services/project.service'
-
+const { singlePublicFileUpload } = require('../awss3')
 
 export const project_get_one = async (req: Request, res: Response) => {
     const projId = parseInt(req.params.id, 10);
@@ -16,17 +16,17 @@ export const project_get_all = async (req: Request, res: Response) => {
 
 
 export const project_create = async (req: Request, res: Response) => {
-        const newProject = await createNewProject(
-                  req.body.userId,
-                  req.body.title,
-                  req.body.category,
-                  req.body.subTitle,
-                  req.body.image,
-                  req.body.targetLaunchDate,
-                  req.body.fundingGoal,
-                  req.body.story
-        );
-        return res.json({ newProject })
+    const newProject = await createNewProject(
+              req.body.userId,
+              req.body.title,
+              req.body.category,
+              req.body.subTitle,
+              req.body.image,
+              req.body.targetLaunchDate,
+              req.body.fundingGoal,
+              req.body.story
+    );
+    return res.json({ newProject })
 }
 
 
