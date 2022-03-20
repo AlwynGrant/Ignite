@@ -9,6 +9,7 @@ import Discover from './components/projects/discover/discover';
 import ProjectPage from './components/projects/discover/project';
 import BackerForm from './components/backers/backer';
 import ProjectNew from './components/projects/newProject/project.create';
+import ProjectEdit from './components/projects/editProject/project.edit';
 
 function App() {
   const context = useContext(SessionContext)
@@ -37,7 +38,7 @@ function App() {
         <Route path='/project/new' element={<ProjectNew />}/>
         <Route path='/project/:projId' element={<ProjectPage />}/>
         <Route path='/project/:projId/back' element={<BackerForm />}/>
-        {/* <Route path='/project/edit' element={}/> */}
+        <Route path='/project/:projId/edit' element={<ProjectEdit />}/>
 
       </Routes>
     </SessionContext.Provider>

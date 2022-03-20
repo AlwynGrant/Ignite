@@ -4,6 +4,7 @@ import SessionContext from '../../../shared/context';
 import  { getOneProject } from '../../../requests/project.request'
 import BackerForm from '../../backers/backer';
 import RadioButtons from '@mui/material'
+import Button from '@mui/material/Button';
 import './styles/project.css'
 import NavFeatured from '../../home/subcomponents/featured.nav';
 import DeleteModal from '../deleteProject/project.delete'
@@ -27,6 +28,10 @@ const ProjectPage = () => {
         navigate(`/project/${projId}/back`)
     }
 
+    const handleEdit = () => {
+        navigate(`/project/${projId}/edit`)
+    }
+
     return (
         <>
             <header className='top-container-project'>
@@ -39,7 +44,7 @@ const ProjectPage = () => {
                         <div className='card-left-s'>
                             <img className='project-image' src={project?.image}/>
                             <div className='project-under-image'>
-                                <button className='proj-edit'>EDIT</button>
+                                 { window.sessionStorage.getItem('id') == project?.userId && <Button onClick={handleEdit}>EDIT</Button> }
                                 { window.sessionStorage.getItem('id') == project?.userId && <DeleteModal /> }
                                 <span className='card-data-s'><p>Created by:</p> {`${project?.User. firstName} ${project?.User.lastName}`} <br /></span>
                             </div>

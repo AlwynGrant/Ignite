@@ -1,14 +1,14 @@
+import { ConfigurationServicePlaceholders } from 'aws-sdk/lib/config_service_placeholders';
 import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { editProject } from '../../../requests/project.request';
+import { editProject, getOneProject } from '../../../requests/project.request';
 import NavFeatured from '../../home/subcomponents/featured.nav';
 import { SelectUI } from '../newProject/sub-components/select.material';
 
 const ProjectEdit = () => {
-    const  projId = useParams()
-    const trueStr = String(projId)
+    const  params = useParams()
+    const trueStr = String(params.projId)
     const navigate = useNavigate()
-
     const [title,setTitle] = useState<string>('')
     const [subTitle,setSubTitle] = useState<string>('')
     const [category,setCategory] = useState<string>('')
@@ -29,15 +29,30 @@ const ProjectEdit = () => {
         }
         await editProject(user)
             .then((data) => {
-                console.log(data)
+                navigate(`/project/${trueStr}`)
             })
     }
+
+    useEffect(() =>{
+        (async () => {
+            await getOneProject(trueStr)
+                .then((res) => {
+                    const project = res?.project
+                    setTitle(project?.title)
+                    setSubTitle(project?.subTitle)
+                    setImage(project?.image)
+                    setCategory(project?.category)
+                    setTargetLaunchDate(project?.targetLaunchDate)
+                    setStory(project?.story)
+                })
+        })()
+    }, [])
 
     return (
         <>
             <header className='top-container-project'>
                 <NavFeatured />
-                <h2 className='new-header'>Bring an idea to life!</h2>
+                <h2 className='new-header'>Need a change? Update here.</h2>
             </header>
 
             <main className="main-new">

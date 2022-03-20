@@ -16,7 +16,6 @@ const Featured = () => {
     const handleNewProject = () => {
         navigate('/project/new');
     }
-    console.log(context)
 
     return (
         <>

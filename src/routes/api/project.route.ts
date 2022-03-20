@@ -10,7 +10,7 @@ router.get(
 );
 
 router.get(
-    '/:id',
+    '/:projId',
     project_get_one
 );
 

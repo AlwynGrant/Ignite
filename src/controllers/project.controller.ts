@@ -4,7 +4,7 @@ import { queryOneProject, queryAllProjects, createNewProject, updateProject, del
 const { singlePublicFileUpload } = require('../awss3')
 
 export const project_get_one = async (req: Request, res: Response) => {
-    const projId = parseInt(req.params.id, 10);
+    const projId = parseInt(req.params.projId, 10);
     const project = await queryOneProject(projId);
     return res.json({ project: project }).status(200)
 }

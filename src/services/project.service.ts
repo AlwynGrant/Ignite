@@ -49,8 +49,7 @@ import db from '../../models'
         story: string,
         id: number,
   ) {
-      try {
-          const project = db.Project.findByPk(id)
+          const project = await db.Project.findByPk(id)
           await project.update({
               title,
               subTitle,
@@ -59,9 +58,6 @@ import db from '../../models'
               story
           });
           return project
-      } catch (error) {
-         return (error as Error).message
-      }
   };
 
   export const deleteProject = async function (id: number) {
