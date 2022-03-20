@@ -1,0 +1,58 @@
+.main-new {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-new-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    width: 350px;
+    height: 400px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.new-project-input {
+    width: 300px;
+    height: 40px;
+    margin: 5px;
+    margin: auto;
+
+    font-size: 20px;
+    border-bottom: 1px solid black;
+}
+
+.new-project-btn {
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    margin: auto;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    color: white;
+    background-color: #f83939;
+    /* transform: translateY(); */
+}
+
+.new-project-tarea {
+    margin-left: 20px;
+}
+
+.select-MUI {
+    display: flex;
+    justify-content: center;
+}
+
+.new-header {
+    color: #f83939;
+    font-size: 30px;
+    transform: translateY(100px);
+}

@@ -8,6 +8,7 @@ import Featured from './components/home/featured';
 import Discover from './components/projects/discover/discover';
 import ProjectPage from './components/projects/discover/project';
 import BackerForm from './components/backers/backer';
+import ProjectNew from './components/projects/newProject/project.create';
 
 function App() {
   const context = useContext(SessionContext)
@@ -33,7 +34,7 @@ function App() {
         <Route path='/signup' element={<Signup />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/discover' element={<Discover />}/>
-        <Route path='/project/new' element={<ProjectPage />}/>
+        <Route path='/project/new' element={<ProjectNew />}/>
         <Route path='/project/:projId' element={<ProjectPage />}/>
         <Route path='/project/:projId/back' element={<BackerForm />}/>
         {/* <Route path='/project/edit' element={}/> */}

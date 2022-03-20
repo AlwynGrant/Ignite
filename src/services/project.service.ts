@@ -15,31 +15,30 @@ import db from '../../models'
   };
 
   export const createNewProject = async function (
+        userId: string,
         title: string,
         category: string,
         subTitle: string,
         image: string,
         targetLaunchDate: string,
-        fundingCurrent: number,
-        fundingGoal: number,
+        fundingGoal: string,
         story: string
   ) {
-      try {
-          const newProject = await db.Project.build({
+      const fundingNum = parseInt(fundingGoal, 10);
+      const userNum = parseInt(userId, 10);
+
+          const newProject = await db.Project.create({
+              userId: userNum,
               title,
               category,
               subTitle,
               image,
               targetLaunchDate,
-              fundingCurrent,
-              fundingGoal,
+              fundingCurrent: 0,
+              fundingGoal: fundingNum,
               story
           });
-          await newProject.save();
-        //   TODO: RETURN SOMETHING HERE: PREFERABLLY NEW OBJECT/OBJECT ID
-      } catch (error) {
-         return (error as Error).message
-      }
+        return newProject
   };
 
   export const updateProject = async function (
