@@ -45,7 +45,7 @@ This app was primarily created on the (P)osgres(E)xpress(R)eact(N)ode.js stack b
 The file structure is heavily inspired by the MCV (Model View Controller) design pattern. I felt this was the best decision to make with regards to the pern stack,
 and Typescript. I truly feel they go hand in hand in maximising modularization readability. 
 
-![]()
+![file-structure](https://ibb.co/K63WqLJ)
 
 
     
