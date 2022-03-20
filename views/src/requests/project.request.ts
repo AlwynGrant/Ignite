@@ -14,7 +14,7 @@ export const getAllProjects = async () => {
     return data;
 }
 
-export const getOneProject = async (id: number ) => {
+export const getOneProject = async (id: string | undefined) => {
     const response = await fetch(`http://localhost:5000/api/project/${id}`, {
         method: "GET",
         headers: {

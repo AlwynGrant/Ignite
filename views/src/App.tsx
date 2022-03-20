@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import SessionContext from './shared/context';
 import Featured from './components/home/featured';
 import Discover from './components/projects/discover/discover';
+import ProjectPage from './components/projects/discover/project';
 
 function App() {
   const context = useContext(SessionContext)
@@ -18,7 +19,7 @@ function App() {
         <Route path='/signup' element={<Signup />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/discover' element={<Discover />}/>
-        {/* <Route path='/project/:projId' element={}/> */}
+        <Route path='/project/:projId' element={<ProjectPage />}/>
         {/* <Route path='/project/new' element={}/> */}
         {/* <Route path='/project/edit' element={}/> */}
 
