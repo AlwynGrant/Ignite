@@ -33,8 +33,9 @@ function App() {
         <Route path='/signup' element={<Signup />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/discover' element={<Discover />}/>
+        <Route path='/project/new' element={<ProjectPage />}/>
         <Route path='/project/:projId' element={<ProjectPage />}/>
-        <Route path='/project/:projId/back-project' element={<BackerForm />}/>
+        <Route path='/project/:projId/back' element={<BackerForm />}/>
         {/* <Route path='/project/edit' element={}/> */}
 
       </Routes>

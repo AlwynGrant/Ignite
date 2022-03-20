@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import SessionContext from '../../../shared/context';
 import  { getOneProject } from '../../../requests/project.request'
+import BackerForm from '../../backers/backer';
 import RadioButtons from '@mui/material'
 import './styles/project.css'
 
@@ -45,8 +46,8 @@ const ProjectPage = () => {
                             <span className='card-data-s'><p>Sub-title:</p> {project?.subTitle} <br /></span>
                             <span className='card-data-s'><p>Category:</p> {project?.category} <br /></span>
                             <span className='card-data-s'><p>Anticipated Launch Date:</p> {project?.targetLaunchDate} <br /></span>
-                            <span className='card-data-s'><p>Current funding</p> {project?.fundingCurrent} <br /></span>
-                            <span className='card-data-s'><p>Current funding</p> {project?.fundingGoal} <br /></span>
+                            <span className='card-data-s'><p>Current funding</p> ${project?.fundingCurrent}.00 <br /></span>
+                            <span className='card-data-s'><p>Current funding</p> ${project?.fundingGoal}.00 <br /></span>
                             <button className='project-back-btn' onClick={() => handleBacker()}>Contribute</button>
                             <div className='project-story'>
                                 <span className='card-data-story'>

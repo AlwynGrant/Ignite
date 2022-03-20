@@ -23,7 +23,6 @@ const Discover = () => {
         navigate(`/project/${i}`)
     }
 
-    console.log(context)
     return (
         <>
             <header className='top-container-discover'>

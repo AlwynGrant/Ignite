@@ -54,7 +54,7 @@ const BackerForm = () => {
                     <article className="backer-article">
                         <span className='backer-info-title'>{project?.title} <br /></span>
                         <div className='backer-info-line'>
-                            <span className="card-data-b"> by {`${project?.User. firstName} ${project?.User.lastName}`} <br /></span>
+                            <span className="card-data-b"> by {`${project?.User.firstName} ${project?.User.lastName}`} <br /></span>
                             <span className='card-data-b'>Target Launch Date {project?.targetLaunchDate} <br /></span>
                             <span className='card-data-b'>Current funding ${project?.fundingCurrent}.00 <br /></span>
                             <span className='card-data-b'>Current funding ${project?.fundingGoal}.00 <br /></span>
