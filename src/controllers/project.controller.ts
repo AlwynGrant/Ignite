@@ -6,13 +6,13 @@ import { StatusError } from '../validators/index'
 export const project_get_one = async (req: Request, res: Response) => {
     const projId = parseInt(req.params.id, 10);
     const project = await queryOneProject(projId);
-    return res.json({ project: project })
+    return res.json({ project: project }).status(200)
 }
 
 
 export const project_get_all = async (req: Request, res: Response) => {
     const projects = await queryAllProjects();
-    return res.json({ projectList: projects })
+    return res.json({ projectList: projects }).status(200)
 }
 
 

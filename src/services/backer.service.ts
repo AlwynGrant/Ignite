@@ -15,3 +15,20 @@ import db from '../../models'
         })
         return project
   };
+
+
+    export const updateFundingByBackerAmount = async function (
+        backAmount: number,
+        id: number,
+  ) {
+      try {
+          const project = await db.Project.findByPk(id)
+          const newTotal = project.fundingCurrent + backAmount
+          const updatedProject = await project.update({
+            fundingCurrent: newTotal
+          });
+          return updatedProject
+      } catch (error) {
+         return (error as Error).message
+      }
+  };
