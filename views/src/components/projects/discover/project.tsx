@@ -5,6 +5,7 @@ import  { getOneProject } from '../../../requests/project.request'
 import BackerForm from '../../backers/backer';
 import RadioButtons from '@mui/material'
 import './styles/project.css'
+import NavFeatured from '../../home/subcomponents/featured.nav';
 
 const ProjectPage = () => {
     const navigate = useNavigate()
@@ -22,13 +23,13 @@ const ProjectPage = () => {
     }, [])
 
     const handleBacker = () => {
-        navigate(`/project/${projId}/back-project`)
+        navigate(`/project/${projId}/back`)
     }
 
     return (
         <>
             <header className='top-container-project'>
-                {/* <NavHome /> */}
+                <NavFeatured />
             </header>
 
             <main className="bottom-featured-project">
@@ -38,7 +39,6 @@ const ProjectPage = () => {
                             <img className='project-image' src={project?.image}/>
                             <div className='project-under-image'>
                                 <span className='card-data-s'><p>Created by:</p> {`${project?.User. firstName} ${project?.User.lastName}`} <br /></span>
-                                <span className='card-data-s'><p>Funding started on</p> <br /></span>
                             </div>
                         </div>
                         <div className='card-right-s'>

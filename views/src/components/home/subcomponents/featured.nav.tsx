@@ -1,35 +1,26 @@
 import React, { useState  } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/home.nav.css'
+import '../styles/featured.nav.css'
 
-const NavHome = () => {
+const NavFeatured = () => {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate('/login')
-  }
-
-  const handleSignup = () => {
-    navigate('/signup')
+  const handleLogout = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault()
+    window.sessionStorage.clear()
+    navigate('/')
   }
 
   return (
     <nav className='nav-bar-splash'>
-        <section className='nav-items-left'>
+        <section className='nav-items-left-auth'>
             <p className='spl-logo'>IGNITE</p>
         </section>
-        <section className="nav-items-right">
-            <button
-              className="spl-login-btn"
-              onClick={() => handleLogin()}
-              >Log In</button>
-            <button
-              className="spl-signup-btn"
-              onClick={() => handleSignup()}
-              >Sign up</button>
-        </section>
+        <button
+          onClick={(e) => handleLogout(e)}
+          className="nav-items-right-auth">Logout</button>
     </nav>
   );
 }
 
-export default NavHome;
+export default NavFeatured;

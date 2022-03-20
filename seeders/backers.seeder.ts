@@ -2,7 +2,7 @@ export const backers: object[] = [
      {
         ProjectId: 2,
         UserId: 5,
-        contributeAmount: 90,
+        contributeAmount: 1800,
       },
      {
         ProjectId: 1,
@@ -22,7 +22,7 @@ export const backers: object[] = [
       {
         ProjectId: 2,
         UserId: 5,
-        contributeAmount: 90,
+        contributeAmount: 1800,
       },
       {
         ProjectId: 3,

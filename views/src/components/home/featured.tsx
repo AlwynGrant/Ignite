@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SessionContext from '../../shared/context'
-import NavHome from './subcomponents/home.nav'
 import prod1 from './images/prod1.jpg'
 import './styles/featured.css'
+import NavFeatured from './subcomponents/featured.nav'
 
 const Featured = () => {
     const navigate = useNavigate()
@@ -20,7 +20,7 @@ const Featured = () => {
     return (
         <>
             <header className='top-container-featured'>
-                <NavHome />
+                <NavFeatured />
                 <div className='featured-main-text'>IGNITE</div>
             </header>
 

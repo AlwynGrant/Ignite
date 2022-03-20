@@ -1,0 +1,32 @@
+.nav-bar-splash{
+    background-color: white;
+    width: 95%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-section{
+    /* background-color: cornflowerblue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* NAV CHILDREN */
+
+.nav-items-right-auth {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+}
+
+.spl-logo {
+    color: #E42121;
+    font-weight: 600;
+    font-size: 20px;
+}
