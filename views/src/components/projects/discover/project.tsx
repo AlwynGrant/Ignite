@@ -4,7 +4,10 @@ import SessionContext from '../../../shared/context';
 import  { getOneProject } from '../../../requests/project.request'
 import BackerForm from '../../backers/backer';
 import RadioButtons from '@mui/material'
+import Button from '@mui/material/Button';
 import './styles/project.css'
+import NavFeatured from '../../home/subcomponents/featured.nav';
+import DeleteModal from '../deleteProject/project.delete'
 
 const ProjectPage = () => {
     const navigate = useNavigate()
@@ -22,13 +25,17 @@ const ProjectPage = () => {
     }, [])
 
     const handleBacker = () => {
-        navigate(`/project/${projId}/back-project`)
+        navigate(`/project/${projId}/back`)
+    }
+
+    const handleEdit = () => {
+        navigate(`/project/${projId}/edit`)
     }
 
     return (
         <>
             <header className='top-container-project'>
-                {/* <NavHome /> */}
+                <NavFeatured />
             </header>
 
             <main className="bottom-featured-project">
@@ -37,8 +44,9 @@ const ProjectPage = () => {
                         <div className='card-left-s'>
                             <img className='project-image' src={project?.image}/>
                             <div className='project-under-image'>
+                                 { window.sessionStorage.getItem('id') == project?.userId && <Button onClick={handleEdit}>EDIT</Button> }
+                                { window.sessionStorage.getItem('id') == project?.userId && <DeleteModal /> }
                                 <span className='card-data-s'><p>Created by:</p> {`${project?.User. firstName} ${project?.User.lastName}`} <br /></span>
-                                <span className='card-data-s'><p>Funding started on</p> <br /></span>
                             </div>
                         </div>
                         <div className='card-right-s'>
@@ -60,6 +68,7 @@ const ProjectPage = () => {
                 </section>
             </main>
         </>
+
     );
 }
 

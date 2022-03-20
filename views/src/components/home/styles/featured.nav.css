@@ -1,0 +1,51 @@
+.nav-bar-splash{
+    background-color: white;
+    width: 95%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-section{
+    /* background-color: cornflowerblue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* NAV CHILDREN */
+.nav-items-left-auth {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 200px;
+}
+
+.nav-items-right-auth {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+}
+
+.spl-logo {
+    color: #E42121;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+.general-back-btn {
+    width: 70px;
+    height: 25px;
+    border-radius: 5px;
+
+    font-size: 15px;
+    cursor: pointer;
+
+    color: white;
+    background-color: #ff3c3c;
+}

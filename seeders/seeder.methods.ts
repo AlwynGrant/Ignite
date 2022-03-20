@@ -5,18 +5,18 @@ import { users } from "./users.seeder";
 
 export const seedUsers = () => {
     users.map((user) => {
-        db.User.create(user)
+         db.User.create(user)
     })
 };
 
 export const seedProjects = () => {
     projects.map((project) => {
-        db.Project.create(project)
+         db.Project.create(project)
     })
 };
 
 export const seedBackers = () => {
     backers.map((backer) => {
-        db.Backer.create(backer)
+         db.Backer.create(backer)
     })
 };

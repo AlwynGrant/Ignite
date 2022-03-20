@@ -17,9 +17,6 @@ export const validateProject = [
     check('targetLaunchDate')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid release date.'),
-    check('fundingGoal')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a valid goal amount.'),
     check('story')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid story.')

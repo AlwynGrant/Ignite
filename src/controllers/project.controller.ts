@@ -1,9 +1,10 @@
+import { Console } from 'console';
 import express,  { Application, Request, Response, NextFunction }  from 'express'
 import { queryOneProject, queryAllProjects, createNewProject, updateProject, deleteProject } from '../services/project.service'
 const { singlePublicFileUpload } = require('../awss3')
 
 export const project_get_one = async (req: Request, res: Response) => {
-    const projId = parseInt(req.params.id, 10);
+    const projId = parseInt(req.params.projId, 10);
     const project = await queryOneProject(projId);
     return res.json({ project: project }).status(200)
 }
@@ -31,7 +32,7 @@ export const project_create = async (req: Request, res: Response) => {
 
 
 export const project_update = async (req: Request, res: Response) => {
-    const projId = parseInt(req.params.id, 10);
+    const projId = parseInt(req.params.projId, 10);
     const project = await updateProject(
               req.body.title,
               req.body.subTitle,
@@ -45,7 +46,7 @@ export const project_update = async (req: Request, res: Response) => {
 
 
 export const project_delete = async (req: Request, res: Response) => {
-        const projId = parseInt(req.params.id, 10);
-        await deleteProject(projId)
-        return res.json({ projId })
-    }
+    const projId = parseInt(req.params.projId, 10);
+    await deleteProject(projId)
+    res.send({}).status(200)
+}

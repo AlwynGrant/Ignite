@@ -1,4 +1,5 @@
 import express, { Application } from 'express';
+import { seedBackers, seedProjects, seedUsers } from '../seeders/seeder.methods';
 import db from '../models'
 
 import cookieParser from 'cookie-parser';
@@ -20,8 +21,12 @@ app.use(cors());
 app.use(routes);
 
 // seedUsers();
+
 // seedProjects();
-// seedBackers();
+
+
+
+
 
 db.sequelize.sync().then(() => {
     app.listen(port, () => {

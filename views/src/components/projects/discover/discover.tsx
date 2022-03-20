@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import SessionContext from '../../../shared/context';
 import  { getAllProjects } from '../../../requests/project.request'
 import './styles/discover.css'
+import NavFeatured from '../../home/subcomponents/featured.nav';
+
+
 
 const Discover = () => {
     const navigate = useNavigate()
@@ -26,7 +29,7 @@ const Discover = () => {
     return (
         <>
             <header className='top-container-discover'>
-                {/* <NavHome /> */}
+                <NavFeatured />
                 <div className='featured-main-text'>IGNITE</div>
             </header>
 
@@ -42,7 +45,7 @@ const Discover = () => {
                                     onClick={() => handleClick(project.id)}
                                 >
                                     <div className='card-top'>
-                                        <img src={project.image}/>
+                                        <img src={`${project.image}`}/>
                                     </div>
                                     <div className='card-bottom'>
                                         <span className='card-data'><p>Title:</p> {project.title} <br /></span>
