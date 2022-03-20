@@ -5,7 +5,7 @@ import { validateContribution } from '../../validators/backer.validator';
 const router = express.Router();
 
 router.post(
-    '/:userId/back/:projId',
+    '/:projId/back',
     validateContribution,
     back_project
 );

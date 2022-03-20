@@ -1,0 +1,68 @@
+.backer-main {
+    width: 100vw;
+}
+
+.backer-section {
+    height: 100px;
+}
+
+.backer-article {
+    display: flex;
+    flex-direction: column;
+}
+
+.backer-info-title {
+    text-align: center;
+    font-size: 30px;
+}
+
+.backer-info-line {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.card-data-b {
+    font-size: 18px;
+}
+
+.backer-form {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    padding: 40px;
+    border-top: 1px solid black;
+}
+
+.inner-form-control {
+    display: flex  !important;
+    justify-content: center !important;
+}
+
+
+.backer-custom-input {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    border-bottom: 1px solid black;
+}
+
+.backer-btn {
+    width: 40%;
+    height: 35px;
+    margin-top: 20px;
+    border-radius: 5px;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    color: white;
+    background-color: #f83939;
+}
+
+.MuiFormGroup-root {
+    display: flex;
+}

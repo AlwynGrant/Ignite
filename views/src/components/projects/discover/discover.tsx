@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import SessionContext from '../../../shared/context';
 import  { getAllProjects } from '../../../requests/project.request'
 import './styles/discover.css'
 
 const Discover = () => {
     const navigate = useNavigate()
+    const context = useContext(SessionContext)
     const [projects, setProjects] = useState<string[] | number[]>([])
 
     useEffect(() =>{
@@ -21,6 +23,7 @@ const Discover = () => {
         navigate(`/project/${i}`)
     }
 
+    console.log(context)
     return (
         <>
             <header className='top-container-discover'>

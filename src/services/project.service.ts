@@ -52,7 +52,7 @@ import db from '../../models'
   ) {
       try {
           const project = db.Project.findByPk(id)
-          await project.build({
+          await project.update({
               title,
               subTitle,
               targetLaunchDate,

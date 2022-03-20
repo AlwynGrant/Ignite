@@ -1,24 +1,27 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import SessionContext from '../../../shared/context';
 import  { getOneProject } from '../../../requests/project.request'
+import RadioButtons from '@mui/material'
 import './styles/project.css'
 
 const ProjectPage = () => {
     const navigate = useNavigate()
     const { projId } = useParams()
+    const context = useContext(SessionContext)
     const [project, setProject] = useState<any>()
 
     useEffect(() =>{
         (async () => {
             await getOneProject(projId)
-            .then((res) => {
-                setProject(res.project)
-            })
+                .then((res) => {
+                    setProject(res.project)
+                })
         })()
     }, [])
 
     const handleBacker = () => {
-        navigate('/back-project')
+        navigate(`/project/${projId}/back-project`)
     }
 
     return (

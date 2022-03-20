@@ -1,14 +1,16 @@
 import { createContext, useContext, useState} from 'react';
 
+type SessionInputs = string | null
+
 export interface Session {
-    id: number;
-    email: string;
-    firstName: string;
-    lastName: string;
+    id: SessionInputs;
+    email: SessionInputs;
+    firstName: SessionInputs;
+    lastName: SessionInputs;
 }
 
 const defaultState: Session = {
-    id: 0,
+    id: "",
     email: "",
     firstName: "",
     lastName: ""

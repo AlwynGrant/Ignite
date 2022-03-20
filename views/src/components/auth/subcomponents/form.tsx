@@ -40,10 +40,11 @@ export default function Form (props: { [key: string ]: InputObject}) {
       }
       await signUp(newUser)
         .then((data) => {
-          context.firstName = data.user.firstName
-          context.lastName = data.user.lastName
-          context.id = data.user.id
-          context.email = data.user.email
+          const user = data.user
+          window.sessionStorage.setItem('firstName', user.firstName)
+          window.sessionStorage.setItem('lastName', user.lastName)
+          window.sessionStorage.setItem('id', user.id)
+          window.sessionStorage.setItem('email', user.email)
         })
           .then(() => {
           navigate('/featured')
@@ -60,10 +61,11 @@ export default function Form (props: { [key: string ]: InputObject}) {
       }
       await logIn(user)
         .then((data) => {
-          context.firstName = data.user.firstName
-          context.lastName = data.user.lastName
-          context.id = data.user.id
-          context.email = data.user.email
+          const user = data.user
+          window.sessionStorage.setItem('firstName', user.firstName)
+          window.sessionStorage.setItem('lastName', user.lastName)
+          window.sessionStorage.setItem('id', user.id)
+          window.sessionStorage.setItem('email', user.email)
         })
         .then(() => {
           navigate('/featured')
