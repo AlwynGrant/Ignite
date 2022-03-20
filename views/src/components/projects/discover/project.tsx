@@ -44,7 +44,7 @@ const ProjectPage = () => {
                             <span className='card-data-s'><p>Anticipated Launch Date:</p> {project?.targetLaunchDate} <br /></span>
                             <span className='card-data-s'><p>Current funding</p> {project?.fundingCurrent} <br /></span>
                             <span className='card-data-s'><p>Current funding</p> {project?.fundingGoal} <br /></span>
-                            <button onClick={() => handleBacker()}>Contribute</button>
+                            <button className='project-back-btn' onClick={() => handleBacker()}>Contribute</button>
                             <div className='project-story'>
                                 <span className='card-data-story'>
                                     <p>Story</p> <br />
