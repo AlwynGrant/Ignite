@@ -22,7 +22,7 @@ app.use(routes);
 
 // seedUsers();
 
-seedProjects();
+// seedProjects();
 
 
 

@@ -65,11 +65,7 @@ import db from '../../models'
   };
 
   export const deleteProject = async function (id: number) {
-      try {
-          const project = db.Project.findByPk(id)
-          await project.destory()
-          return project
-      } catch (error) {
-         return (error as Error).message
-      }
+          const project = await db.Project.findByPk(id)
+          await project.destroy()
+          return
   };

@@ -22,13 +22,13 @@ router.post(
 );
 
 router.patch(
-    '/:id/update',
+    '/:projId/edit',
     validateProject,
     project_update
 );
 
 router.delete(
-    '/:id/delete',
+    '/:projId/delete',
     project_delete
 );
 

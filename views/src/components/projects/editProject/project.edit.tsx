@@ -1,44 +1,33 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import SessionContext from '../../../shared/context';
-import { createProject } from '../../../requests/project.request';
-import './styles/new.project.css'
-import { SelectUI } from './sub-components/select.material';
-import { Dispatch, SetStateAction } from "react";
+import { editProject } from '../../../requests/project.request';
 import NavFeatured from '../../home/subcomponents/featured.nav';
+import { SelectUI } from '../newProject/sub-components/select.material';
 
-interface Drill {
-  getter: string;
-  setter: Dispatch<SetStateAction<string>>;
-}
-
-const ProjectNew = () => {
-    type State = File | undefined | string
-
+const ProjectEdit = () => {
+    const  projId = useParams()
+    const trueStr = String(projId)
     const navigate = useNavigate()
-    const context = useContext(SessionContext)
-    const [userId, setUserId] = useState(String(window.sessionStorage.getItem('id')))
+
     const [title,setTitle] = useState<string>('')
     const [subTitle,setSubTitle] = useState<string>('')
     const [category,setCategory] = useState<string>('')
     const [targetLaunchDate,setTargetLaunchDate] = useState<string>('')
-    const [fundingGoal,setFundingGoal] = useState<string>("")
     const [story,setStory] = useState<string>('')
     const [image, setImage] = useState<string>("");
     const [errors,setErrors] = useState<string>('')
 
-    const handleCreation = async () => {
+    const handleEdit = async () => {
         const user = {
-            userId,
+            projId: trueStr,
             title,
             subTitle,
             category,
             image,
             targetLaunchDate,
-            fundingGoal,
             story
         }
-        await createProject(user)
+        await editProject(user)
             .then((data) => {
                 console.log(data)
             })
@@ -85,16 +74,9 @@ const ProjectNew = () => {
                         onChange={(e => setTargetLaunchDate(e.target.value))}
                         type="month"
                         />
-                    <input
-                        className='new-project-input'
-                        placeholder='Funding Goal'
-                        value={fundingGoal}
-                        onChange={(e) => setFundingGoal(e.target.value)}
-                        type="number"
-                        />
                     <button
                         className='new-project-btn'
-                        onClick={() => handleCreation()}
+                        onClick={() => handleEdit()}
                     >Submit</button>
                 </form>
                     <textarea
@@ -110,4 +92,4 @@ const ProjectNew = () => {
     );
 }
 
-export default ProjectNew
+export default ProjectEdit

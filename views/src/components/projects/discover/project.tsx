@@ -6,6 +6,7 @@ import BackerForm from '../../backers/backer';
 import RadioButtons from '@mui/material'
 import './styles/project.css'
 import NavFeatured from '../../home/subcomponents/featured.nav';
+import DeleteModal from '../deleteProject/project.delete'
 
 const ProjectPage = () => {
     const navigate = useNavigate()
@@ -38,6 +39,8 @@ const ProjectPage = () => {
                         <div className='card-left-s'>
                             <img className='project-image' src={project?.image}/>
                             <div className='project-under-image'>
+                                <button className='proj-edit'>EDIT</button>
+                                { window.sessionStorage.getItem('id') == project?.userId && <DeleteModal /> }
                                 <span className='card-data-s'><p>Created by:</p> {`${project?.User. firstName} ${project?.User.lastName}`} <br /></span>
                             </div>
                         </div>
@@ -60,6 +63,7 @@ const ProjectPage = () => {
                 </section>
             </main>
         </>
+
     );
 }
 

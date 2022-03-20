@@ -1,0 +1,13 @@
+
+.general-back-btn {
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 5px;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    color: white;
+    background-color: #ff3c3c;
+}

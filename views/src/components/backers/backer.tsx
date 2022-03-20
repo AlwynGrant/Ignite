@@ -10,6 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import './styles/backer.css'
+import NavFeatured from '../home/subcomponents/featured.nav';
 
 const BackerForm = () => {
     const navigate = useNavigate()
@@ -46,7 +47,7 @@ const BackerForm = () => {
     return (
         <>
             <header className='top-container-project'>
-                {/* <NavHome /> */}
+                <NavFeatured />
             </header>
 
             <main className="backer-main">

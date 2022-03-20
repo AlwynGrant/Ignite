@@ -8,6 +8,15 @@ interface Project {
     fundingGoal: string;
     story: string;
 }
+interface EditProject {
+    projId: string;
+    title: string;
+    subTitle: string;
+    category: string;
+    image: string;
+    targetLaunchDate: string;
+    story: string;
+}
 
 export const getAllProjects = async () => {
     const response = await fetch("http://localhost:5000/api/project/all", {
@@ -57,5 +66,37 @@ export const createProject = async (project: Project) => {
 
     const data = await response.json();
 
+    return data;
+}
+
+export const editProject = async (project: EditProject) => {
+    const { projId, title, subTitle, category, image, targetLaunchDate, story } = project
+    const response = await fetch(`http://localhost:5000/api/project/${projId}/edit`, {
+        method: "PATCH",
+        headers: {
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify({
+            projId,
+            title,
+            category,
+            subTitle,
+            image,
+            targetLaunchDate,
+            story
+        }),
+    });
+
+    const data = await response.json();
+
+    return data;
+}
+
+
+export const deleteProject = async (projId:string) => {
+    const response = await fetch(`http://localhost:5000/api/project/${projId}/delete`, {
+        method: "DELETE",
+    });
+    const data = await response.json();
     return data;
 }
