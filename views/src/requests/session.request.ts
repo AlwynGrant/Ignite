@@ -1,5 +1,3 @@
-import { application } from 'express';
-import Cookies from 'js-cookie';
 
 interface BodyData {
   email: string;
@@ -43,6 +41,6 @@ export const logIn = async (user: BodyData ) => {
         }),
     });
     const data = await response.json();
-    
+
     return data;
 }
